@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1026414553656",
+    "firebase_url": "https://chandrbhaga-collections.firebaseio.com",
+    "project_id": "chandrbhaga-collections",
+    "storage_bucket": "chandrbhaga-collections.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1026414553656:android:89493d9f5be298da5354cd",
+        "android_client_info": {
+          "package_name": "com.example.chandrabhagacollection"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1026414553656-olr45hi9q7r43g2notjeq4uji5a93a9b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chandrabhagacollection",
+            "certificate_hash": "a058c77ec79e3080dd24bca3ee8567f802573eb9"
+          }
+        },
+        {
+          "client_id": "1026414553656-igfan81ttca77m13i1b145dhn6t06uoe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBL-kP4zuRLLLVDrg2wnyGFZyelXYhitiw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1026414553656-igfan81ttca77m13i1b145dhn6t06uoe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
