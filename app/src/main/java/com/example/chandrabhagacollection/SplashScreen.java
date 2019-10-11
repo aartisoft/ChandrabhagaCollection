@@ -2,10 +2,10 @@ package com.example.chandrabhagacollection;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,7 +18,8 @@ public class SplashScreen extends AppCompatActivity implements AnimationListener
 
 	// Set Duration of the Splash Screen
 	long Delay = 4000;
-	TextView imageView1;
+	ImageView imageView1;
+	TextView txtCollections;
 	Animation animBounce;
 
 	@Override
@@ -27,14 +28,16 @@ public class SplashScreen extends AppCompatActivity implements AnimationListener
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.splashscreen);
 
-		imageView1 = (TextView) findViewById(R.id.image);
-
+//		imageView1 = (ImageView) findViewById(R.id.image);
 //		animBounce = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.bounce);
-
 //		animBounce.setAnimationListener(this);
-		
-		imageView1.setVisibility(View.VISIBLE);
+//		imageView1.setVisibility(View.VISIBLE);
 //		imageView1.startAnimation(animBounce);
+		animBounce = AnimationUtils.loadAnimation(getApplicationContext(),
+				R.anim.bounce);
+		txtCollections = (TextView) findViewById(R.id.image);
+
+		txtCollections.startAnimation(animBounce);
 
 		// Create a Timer
 		Timer RunSplash = new Timer();

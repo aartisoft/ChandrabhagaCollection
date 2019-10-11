@@ -15,10 +15,10 @@
     <TextView
         android:id="@+id/image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:text="चंद्रभागा कलेक्शन "
         android:gravity="center"
-        android:textSize="40dp"
+        android:textSize="50dp"
         android:textColor="@color/white"/>
 
 </RelativeLayout>

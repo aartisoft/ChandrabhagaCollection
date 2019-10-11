@@ -36,6 +36,7 @@
     <string name="menu_purchase">Purchase</string>
     <string name="menu_sale">Sale</string>
     <string name="menu_stock">Stock</string>
+    <string name="menu_report">Reports</string>
     <string name="menu_logout">Logout</string>
 
     <string name="hint_brand_name">Brand</string>

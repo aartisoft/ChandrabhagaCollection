@@ -16,6 +16,10 @@
             android:id="@+id/stock"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_stock" />
+        <item
+            android:id="@+id/report"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_report" />
 
     </group>
 
