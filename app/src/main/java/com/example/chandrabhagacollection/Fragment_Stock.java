@@ -65,7 +65,7 @@ public class Fragment_Stock extends Fragment {
         progress = (ProgressBar) view.findViewById(R.id.catalog_progress);
 
         progress.setVisibility(View.VISIBLE);
-        mDatabaseRefproducts = FirebaseDatabase.getInstance().getReference("Products");
+        mDatabaseRefproducts = FirebaseDatabase.getInstance().getReference("Stock");
         mDatabaseRefproducts.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

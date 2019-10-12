@@ -35,9 +35,9 @@ public class Fragment_Purchase extends Fragment {
 
     private List<String> listoccupation;
 
-    private DatabaseReference mDatabaseRefproducts,mDatabaseRefstock;
+    private DatabaseReference mDatabaseRefproducts, mDatabaseRefstock;
     private DatabaseReference mDatabase;
-    String key,key1;
+    String key, key1;
 
     public Fragment_Purchase() {
     }
@@ -101,10 +101,15 @@ public class Fragment_Purchase extends Fragment {
         product.setCatalogName(edtCatalogName.getText().toString());
         product.setQuantity(edtQuantity.getText().toString());
         product.setPrice(edtPrice.getText().toString());
+        product.setProductId(key1);
 
         mDatabaseRefproducts.child(key).setValue(product);
         mDatabaseRefstock.child(key1).setValue(product);
         Toast.makeText(getContext(), "Product Addred", Toast.LENGTH_SHORT).show();
+        edtCatalogName.setText("");
+        edtBrandName.setText("");
+        edtQuantity.setText("");
+        edtPrice.setText("");
     }
 
     @Override

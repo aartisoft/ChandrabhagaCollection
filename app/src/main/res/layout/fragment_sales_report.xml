@@ -14,6 +14,49 @@
                 android:orientation="vertical"
                 android:padding="@dimen/activity_horizontal_margin">
 
+                <LinearLayout
+                    android:id="@+id/layoutmainproduct1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <EditText
+                        android:id="@+id/edittextfromdate"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_marginTop="10sp"
+                        android:layout_weight="50"
+                        android:background="@drawable/white_border"
+                        android:gravity="center_horizontal"
+                        android:hint="From Date"
+                        android:maxLength="20"
+                        android:focusable="false"
+                        android:padding="10sp"
+                        android:textColor="@color/mainTextColor"
+                        android:textColorHint="@color/mainTextColor"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/edittexttodate"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_marginTop="20sp"
+                        android:layout_weight="50"
+                        android:background="@drawable/white_border"
+                        android:gravity="center_horizontal"
+                        android:hint="To Date"
+                        android:focusable="false"
+                        android:padding="10sp"
+                        android:textColor="@color/mainTextColor"
+                        android:textColorHint="@color/mainTextColor"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/catalog_recycle"
                     android:layout_width="match_parent"

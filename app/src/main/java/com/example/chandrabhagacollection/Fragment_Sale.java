@@ -146,7 +146,15 @@ public class Fragment_Sale extends Fragment {
     };
 
     private void UpdateStock(ArrayList<Products> productList) {
-        Products products = productList.get(0);
+        if (productList != null) {
+            Products products = productList.get(0);
+            String price = products.getQuantity();
+            int p;
+            p = Integer.valueOf(price) - Integer.valueOf(edtQuantity.getText().toString());
+            key = products.getProductId();
+            mDatabase = FirebaseDatabase.getInstance().getReference();
+            mDatabase.child("Stock").child(key).child("quantity").setValue(String.valueOf(p));
+        }
 
     }
 
