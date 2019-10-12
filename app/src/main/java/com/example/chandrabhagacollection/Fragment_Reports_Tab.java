@@ -32,8 +32,8 @@ public class Fragment_Reports_Tab extends Fragment {
         View view = inflater.inflate(R.layout.roports_tab_layout, container, false);
         viewPager = (ViewPager) view.findViewById(R.id.viewPager);
         viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager());
-        viewPagerAdapter.addFragement(new Fragment_Purchase(), "Purchase");
-        viewPagerAdapter.addFragement(new Fragment_Stock(), "Sale");
+        viewPagerAdapter.addFragement(new Fragment_Purchase_Report(), "Purchase");
+        viewPagerAdapter.addFragement(new Fragment_Sales_Report(), "Sale");
 
 
         viewPager.setAdapter(viewPagerAdapter);

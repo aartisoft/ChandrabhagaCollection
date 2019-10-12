@@ -45,4 +45,5 @@
     <string name="hint_rate">Price</string>
 
     <string name="btn_add_product">ADD</string>
+    <string name="dismiss">dismiss</string>
 </resources>

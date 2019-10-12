@@ -3,7 +3,6 @@ package com.example.chandrabhagacollection;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
@@ -12,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 
-public class Fragment_Stock extends Fragment {
+public class Fragment_Purchase_Report extends Fragment {
 
     // NOTE: Removed Some unwanted Boiler Plate Codes
     private OnFragmentInteractionListener mListener;
@@ -38,7 +36,7 @@ public class Fragment_Stock extends Fragment {
     private DatabaseReference mDatabase;
     String key;
 
-    public Fragment_Stock() {
+    public Fragment_Purchase_Report() {
     }
 
     @Override
@@ -49,7 +47,7 @@ public class Fragment_Stock extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_stock, container, false);
+        View view = inflater.inflate(R.layout.fragment_purchase_report, container, false);
 
         // NOTE : We are calling the onFragmentInteraction() declared in the MainActivity
         // ie we are sending "Fragment 1" as title parameter when fragment1 is activated

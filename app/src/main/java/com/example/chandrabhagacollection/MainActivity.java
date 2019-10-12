@@ -101,13 +101,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     new Fragment_Purchase()).commit();
 
         } else if (id == R.id.sale) {
-//            getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,
-//                   new Fragment_UploadImage()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,
+                   new Fragment_Sale()).commit();
 
 
         } else if (id == R.id.stock) {
             getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,
                     new Fragment_Stock()).commit();
+
+        }else if (id == R.id.report) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,
+                    new Fragment_Reports_Tab()).commit();
 
         } else if (id == R.id.logout) {
 

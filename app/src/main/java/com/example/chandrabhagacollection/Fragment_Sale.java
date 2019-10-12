@@ -12,17 +12,22 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.example.chandrabhagacollection.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class Fragment_Purchase extends Fragment {
+public class Fragment_Sale extends Fragment {
 
     // NOTE: Removed Some unwanted Boiler Plate Codes
     private OnFragmentInteractionListener mListener;
@@ -34,12 +39,13 @@ public class Fragment_Purchase extends Fragment {
     Spinner spinnerType;
 
     private List<String> listoccupation;
+    ArrayList<Products> ProductList;
 
-    private DatabaseReference mDatabaseRefproducts,mDatabaseRefstock;
+    private DatabaseReference mDatabaseRefproducts;
     private DatabaseReference mDatabase;
-    String key,key1;
+    String key,cat,type;
 
-    public Fragment_Purchase() {
+    public Fragment_Sale() {
     }
 
     @Override
@@ -50,15 +56,16 @@ public class Fragment_Purchase extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_purchase, container, false);
+        View view = inflater.inflate(R.layout.fragment_sale, container, false);
 
         // NOTE : We are calling the onFragmentInteraction() declared in the MainActivity
         // ie we are sending "Fragment 1" as title parameter when fragment1 is activated
         if (mListener != null) {
             mListener.onFragmentInteraction("Products");
         }
-        mDatabaseRefproducts = FirebaseDatabase.getInstance().getReference("Products");
-        mDatabaseRefstock = FirebaseDatabase.getInstance().getReference("Stock");
+        mDatabaseRefproducts = FirebaseDatabase.getInstance().getReference("Sales");
+        ProductList = new ArrayList<>();
+
 
         edtCatalogName = (EditText) view.findViewById(R.id.catalog_name);
         edtBrandName = (EditText) view.findViewById(R.id.brand_name);
@@ -94,7 +101,6 @@ public class Fragment_Purchase extends Fragment {
 
     private void AddData() {
         key = mDatabaseRefproducts.push().getKey();
-        key1 = mDatabaseRefstock.push().getKey();
         Products product = new Products();
         product.setType(spinnerType.getSelectedItem().toString());
         product.setBrandName(edtBrandName.getText().toString());
@@ -103,9 +109,47 @@ public class Fragment_Purchase extends Fragment {
         product.setPrice(edtPrice.getText().toString());
 
         mDatabaseRefproducts.child(key).setValue(product);
-        mDatabaseRefstock.child(key1).setValue(product);
+
+         type= spinnerType.getSelectedItem().toString();
+         cat = edtCatalogName.getText().toString();
+        String brand = edtBrandName.getText().toString();
+
+        Query query3 = FirebaseDatabase.getInstance().getReference("Stock")
+                .orderByChild("brandName")
+                .equalTo(brand);
+        query3.addValueEventListener(valueEventListener);
         Toast.makeText(getContext(), "Product Addred", Toast.LENGTH_SHORT).show();
     }
+
+    ValueEventListener valueEventListener = new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            ProductList.clear();
+            if (dataSnapshot.exists()) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Products subproducts1 = snapshot.getValue(Products.class);
+                    if (subproducts1.getCatalogName().equalsIgnoreCase(cat) && subproducts1.getType().equalsIgnoreCase(type)) {
+                        ProductList.add(subproducts1);
+                    }
+
+                }
+                UpdateStock(ProductList);
+                // subCatalogAdapter.notifyDataSetChanged();
+            }
+
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+        }
+    };
+
+    private void UpdateStock(ArrayList<Products> productList) {
+        Products products = productList.get(0);
+
+    }
+
 
     @Override
     public void onAttach(Context context) {
