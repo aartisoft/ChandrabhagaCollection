@@ -121,6 +121,7 @@ public class Fragment_Sale extends Fragment {
                 .orderByChild("brandName")
                 .equalTo(brand);
         query3.addListenerForSingleValueEvent(valueEventListener);
+
         Toast.makeText(getContext(), "Product Addred", Toast.LENGTH_SHORT).show();
     }
 
