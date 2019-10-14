@@ -2,6 +2,7 @@ package com.example.chandrabhagacollection;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,7 +62,9 @@ public class Fragment_Purchase extends Fragment {
         mDatabaseRefstock = FirebaseDatabase.getInstance().getReference("Stock");
 
         edtCatalogName = (EditText) view.findViewById(R.id.catalog_name);
+        edtCatalogName.setFilters(new InputFilter[] {new InputFilter.AllCaps()});
         edtBrandName = (EditText) view.findViewById(R.id.brand_name);
+        edtBrandName.setFilters(new InputFilter[] {new InputFilter.AllCaps()});
         edtQuantity = (EditText) view.findViewById(R.id.quantity);
         edtPrice = (EditText) view.findViewById(R.id.rate_per_peice);
         spinnerType = (Spinner) view.findViewById(R.id.spinner_type);

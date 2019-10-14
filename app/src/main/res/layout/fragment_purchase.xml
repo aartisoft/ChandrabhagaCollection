@@ -24,10 +24,19 @@
                 android:orientation="vertical"
                 android:padding="@dimen/activity_horizontal_margin">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="30dp"
+                    android:textColor="@color/colorPrimary"
+                    android:text="Purchase Items"/>
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="15dp">
 
                     <Spinner
                         android:id="@+id/spinner_type"
@@ -50,7 +59,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:hint="@string/hint_brand_name"
-                        android:inputType="textEmailAddress"
                         android:textColor="@color/input_register_bg"
                         android:textColorHint="@android:color/white" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -66,7 +74,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:hint="@string/hint_catalog_name"
-                        android:inputType="textEmailAddress"
                         android:textColor="@color/input_register_bg"
                         android:textColorHint="@android:color/white" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -82,7 +89,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:hint="@string/hint_quantity"
-                        android:inputType="textEmailAddress"
+                        android:inputType="number"
                         android:textColor="@color/input_register_bg"
                         android:textColorHint="@android:color/white" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -98,7 +105,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:hint="@string/hint_rate"
-                        android:inputType="textEmailAddress"
+                        android:inputType="number"
                         android:textColor="@color/input_register_bg"
                         android:textColorHint="@android:color/white" />
                 </com.google.android.material.textfield.TextInputLayout>

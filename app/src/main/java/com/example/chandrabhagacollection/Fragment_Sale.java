@@ -2,6 +2,7 @@ package com.example.chandrabhagacollection;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +42,7 @@ public class Fragment_Sale extends Fragment {
     private List<String> listoccupation;
     ArrayList<Products> ProductList;
 
-    private DatabaseReference mDatabaseRefproducts;
+    private DatabaseReference mDatabaseRefsales;
     private DatabaseReference mDatabase;
     String key,cat,type;
 
@@ -63,12 +64,14 @@ public class Fragment_Sale extends Fragment {
         if (mListener != null) {
             mListener.onFragmentInteraction("Products");
         }
-        mDatabaseRefproducts = FirebaseDatabase.getInstance().getReference("Sales");
+        mDatabaseRefsales = FirebaseDatabase.getInstance().getReference("Sales");
         ProductList = new ArrayList<>();
 
 
         edtCatalogName = (EditText) view.findViewById(R.id.catalog_name);
+        edtCatalogName.setFilters(new InputFilter[] {new InputFilter.AllCaps()});
         edtBrandName = (EditText) view.findViewById(R.id.brand_name);
+        edtBrandName.setFilters(new InputFilter[] {new InputFilter.AllCaps()});
         edtQuantity = (EditText) view.findViewById(R.id.quantity);
         edtPrice = (EditText) view.findViewById(R.id.rate_per_peice);
         spinnerType = (Spinner) view.findViewById(R.id.spinner_type);
@@ -100,7 +103,7 @@ public class Fragment_Sale extends Fragment {
     }
 
     private void AddData() {
-        key = mDatabaseRefproducts.push().getKey();
+        key = mDatabaseRefsales.push().getKey();
         Products product = new Products();
         product.setType(spinnerType.getSelectedItem().toString());
         product.setBrandName(edtBrandName.getText().toString());
@@ -108,7 +111,7 @@ public class Fragment_Sale extends Fragment {
         product.setQuantity(edtQuantity.getText().toString());
         product.setPrice(edtPrice.getText().toString());
 
-        mDatabaseRefproducts.child(key).setValue(product);
+        mDatabaseRefsales.child(key).setValue(product);
 
          type= spinnerType.getSelectedItem().toString();
          cat = edtCatalogName.getText().toString();
@@ -117,7 +120,7 @@ public class Fragment_Sale extends Fragment {
         Query query3 = FirebaseDatabase.getInstance().getReference("Stock")
                 .orderByChild("brandName")
                 .equalTo(brand);
-        query3.addValueEventListener(valueEventListener);
+        query3.addListenerForSingleValueEvent(valueEventListener);
         Toast.makeText(getContext(), "Product Addred", Toast.LENGTH_SHORT).show();
     }
 
