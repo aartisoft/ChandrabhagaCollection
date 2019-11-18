@@ -100,27 +100,33 @@ public class Activity_Sell_Product extends AppCompatActivity {
     }
 
     private void AddData() {
-        key = mDatabaseRefsales.push().getKey();
-        Products product = new Products();
-        product.setType(spinnerType.getSelectedItem().toString());
-        product.setBrandName(edtBrandName.getText().toString());
-        product.setCatalogName(edtCatalogName.getText().toString());
-        product.setQuantity(edtQuantity.getText().toString());
-        product.setPrice(edtPrice.getText().toString());
+        int q = Integer.parseInt(Product.getQuantity());
+        int r = Integer.parseInt(edtQuantity.getText().toString());
+        if (Product.getQuantity() != "0" && q >= r) {
+            key = mDatabaseRefsales.push().getKey();
+            Products product = new Products();
+            product.setType(spinnerType.getSelectedItem().toString());
+            product.setBrandName(edtBrandName.getText().toString());
+            product.setCatalogName(edtCatalogName.getText().toString());
+            product.setQuantity(edtQuantity.getText().toString());
+            product.setPrice(edtPrice.getText().toString());
 
-        mDatabaseRefsales.child(key).setValue(product);
+            mDatabaseRefsales.child(key).setValue(product);
 
-        type = spinnerType.getSelectedItem().toString();
-        cat = edtCatalogName.getText().toString();
-        String brand = edtBrandName.getText().toString();
+            type = spinnerType.getSelectedItem().toString();
+            cat = edtCatalogName.getText().toString();
+            String brand = edtBrandName.getText().toString();
 
 //        Query query3 = FirebaseDatabase.getInstance().getReference("Stock")
 //                .orderByChild("brandName")
 //                .equalTo(brand);
 //        query3.addListenerForSingleValueEvent(valueEventListener);
-        setLeedStatus(Product);
+            setLeedStatus(Product);
 
-        Toast.makeText(getApplicationContext(), "Product Addred", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Product Addred", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(getApplicationContext(), edtQuantity.getText().toString()+" Products not Available", Toast.LENGTH_SHORT).show();
+        }
     }
 
 //    ValueEventListener valueEventListener = new ValueEventListener() {
