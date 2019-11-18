@@ -17,6 +17,7 @@ public class Constant {
     public static final DatabaseReference EXPENCE_TABLE_REF = DATABASE.getReference("expences");
     public static final DatabaseReference COMMISSION_TABLE_REF = DATABASE.getReference("commission");
     public static final DatabaseReference CHECKLIST_TABLE_REF = DATABASE.getReference("checklistrules");
+    public static final DatabaseReference STOCK_TABLE_REF = DATABASE.getReference("Stock");
 
     /************************************** Firebase Authentication reference constants ***************************************************************************/
     public static final FirebaseAuth AUTH = FirebaseAuth.getInstance();
@@ -91,6 +92,7 @@ public class Constant {
 
     public static final String USER_PROFILE_PATH = "images/user";
     public static final String IMAGE_URI_LIST = "IMAGE_URI_LIST";
+
 
 
 }

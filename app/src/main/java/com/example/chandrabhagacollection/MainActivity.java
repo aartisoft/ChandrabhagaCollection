@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         } else if (id == R.id.sale) {
             getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame,
-                   new Fragment_Sale()).commit();
+                   new Fragment_Sell_Product()).commit();
 
 
         } else if (id == R.id.stock) {

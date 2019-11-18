@@ -46,4 +46,6 @@
 
     <string name="btn_add_product">ADD</string>
     <string name="dismiss">dismiss</string>
+
+    <string name="server_error">Faild to fetch data, please try again.</string>
 </resources>
