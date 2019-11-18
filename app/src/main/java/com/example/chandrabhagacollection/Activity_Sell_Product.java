@@ -117,41 +117,15 @@ public class Activity_Sell_Product extends AppCompatActivity {
             cat = edtCatalogName.getText().toString();
             String brand = edtBrandName.getText().toString();
 
-//        Query query3 = FirebaseDatabase.getInstance().getReference("Stock")
-//                .orderByChild("brandName")
-//                .equalTo(brand);
-//        query3.addListenerForSingleValueEvent(valueEventListener);
+
             setLeedStatus(Product);
 
-            Toast.makeText(getApplicationContext(), "Product Addred", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Sold", Toast.LENGTH_SHORT).show();
         }else {
             Toast.makeText(getApplicationContext(), edtQuantity.getText().toString()+" Products not Available", Toast.LENGTH_SHORT).show();
         }
     }
 
-//    ValueEventListener valueEventListener = new ValueEventListener() {
-//        @Override
-//        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//            ProductList.clear();
-//            if (dataSnapshot.exists()) {
-//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-//                    Products subproducts1 = snapshot.getValue(Products.class);
-//                    if (subproducts1.getCatalogName().equalsIgnoreCase(cat) && subproducts1.getType().equalsIgnoreCase(type)) {
-//                        ProductList.add(subproducts1);
-//                    }
-//
-//                }
-//                UpdateStock(ProductList);
-//                // subCatalogAdapter.notifyDataSetChanged();
-//            }
-//
-//        }
-//
-//        @Override
-//        public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//        }
-//    };
 
     private void setLeedStatus(Products products) {
         if (products != null) {
@@ -161,8 +135,7 @@ public class Activity_Sell_Product extends AppCompatActivity {
             key = products.getProductId();
             products.setQuantity(String.valueOf(p));
             updateLeed(products.getProductId(), products.getLeedStatusMap());
-//            mDatabase = FirebaseDatabase.getInstance().getReference();
-//            mDatabase.child("Stock").child(key).child("quantity").setValue(String.valueOf(p));
+
         }
 
     }
@@ -172,6 +145,7 @@ public class Activity_Sell_Product extends AppCompatActivity {
             @Override
             public void onSuccess(Object object) {
 
+                Toast.makeText(getApplicationContext(), "Stock Updated", Toast.LENGTH_SHORT).show();
 
             }
 

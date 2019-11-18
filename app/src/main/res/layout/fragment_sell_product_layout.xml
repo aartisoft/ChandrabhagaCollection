@@ -24,8 +24,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
-                        android:hint="Search by product"
-                        android:inputType="number"
+                        android:background="@drawable/edittextanimation"
+                        android:hint="Search by product type or Brand"
                         android:textColor="@color/input_register_bg"
                         android:textColorHint="@android:color/white" />
                 </com.google.android.material.textfield.TextInputLayout>

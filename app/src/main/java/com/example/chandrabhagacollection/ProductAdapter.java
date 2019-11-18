@@ -1,6 +1,7 @@
 package com.example.chandrabhagacollection;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +45,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         final Products user = uploads.get(position);
+        int quantity = Integer.parseInt(user.getQuantity());
+        if (quantity <=5){
+            holder.textViewPinCode.setTextColor(Color.parseColor("#FF0000"));;
+        }
 
         holder.textViewName.setText(user.getBrandName());
         holder.textViewMobile.setText(user.getCatalogName());
